@@ -1,0 +1,114 @@
+/* Step 2 */
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  display: flex;
+
+  /* выравниваем контент по вертикали */
+  align-items: center;
+
+  /* необходимо задавать высоту, чтобы выровнять по вертикали */
+  height: 100vh;
+
+  /* выравниваем контент по горизонтали */
+  justify-content: center;
+
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  /* контент начинает размещаться по горизонтали */
+  display: flex;
+  width: 90vw;
+}
+
+.panel {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  /* выставляем ширину каждой панели, у active этот показатель будет больше(5), то есть она будет шире */
+  flex: 0.5;
+  margin: 10px;
+  /* для выравнивания h3 absolute */
+  position: relative;
+  transition: flex 0.5s ease-in;
+}
+
+.panel h3 {
+  font-size: 24px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  /* изначально заголовок скрыт */
+  opacity: 0;
+  transition: opacity 0.3s ease-in 0.2s;
+}
+
+.panel.active {
+  /* при назначении класса active размер понели будет увеличиваться пропорционально до 5 */
+  flex: 5;
+}
+
+.panel.active h3 {
+  /* при назначении класса active заголовок становится виден */
+  opacity: 1;
+}
+
+
+/* настраиваем условия для маленьктх экранов, удаляем две панели и оставляем только 3*/
+@media (max-width: 480px) {
+  .container {
+    width: 100vw;
+  }
+
+  /* выбираем при помощи псевдо класса 4 и 5 панель */
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* с */
