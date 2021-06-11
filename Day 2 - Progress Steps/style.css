@@ -1,0 +1,170 @@
+/* Step 2 - можно идти сверху вниз */
+
+
+/* создаем кастомные параметры для дальнейшего сипользования */
+:root {
+  --line-border-fill: #3498db;
+  --line-border-empty: #e0e0e0;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  background-color: #f6f7fb;
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+  overflow: hidden;
+  margin: 0;
+}
+
+
+/* общий контейнер для всего */
+.container {
+  text-align: center;
+}
+
+
+/* содержит линию прогресса и круги */
+.progress-container {
+  /* переводим весь блочный контент в горизонтальную линию - наши круги */
+  display: flex;
+
+  /* распологаем контент по ширине блока равномерно */
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 350px;
+}
+
+
+/* -- ЛИНИЯ ПРОГРЕССА -- */
+
+/* активная синяя линия прогресса, для ее окрашивания по мере прохождения шагов будем использовать псевдо класс */
+.progress {
+  background-color: var(--line-border-fill);
+  /* размещаем линию прогресса посередине контейнера, то есть от круга к кругу */
+  position: absolute;
+  top: 50%;
+  left: 0;
+  /* выравниваем строго посередине контейнера */
+  transform: translateY(-50%);
+  height: 4px;
+
+  /* стартовая длинна линии 0%, по мере прохождения шагов она будет удлиняться */
+  width: 0%;
+
+  /* линия должна быть позади кругов */
+  z-index: -1;
+
+  /* добавляем transition для плавности появления линии при прохождении шагов */
+  transition: .4s ease;
+}
+
+
+/* пустая линия прогресса серая, которая будет видна до старта прохождения шагов - реализована в виде псевдо класса от .progress но для .progress-container */
+.progress-container::before {
+  /* для псевдо классов мы всегда добавляем пустое значение content иначе его не булет видно */
+  content: '';
+  background-color: var(--line-border-empty);
+  /* размещаем линию прогресса посередине контейнера, то есть от круга к кругу */
+  position: absolute;
+  top: 50%;
+  left: 0;
+  /* выравниваем строго посередине контейнера */
+  transform: translateY(-50%);
+  height: 4px;
+
+  /* стартовая длинна линии 0%, по мере прохождения шагов она будет удлиняться */
+  width: 100%;
+
+  /* линия должна быть позади кругов */
+  z-index: -1;
+}
+
+
+
+
+/* -- КРУГИ -- */
+
+/* стилизуем сами круги шагов */
+.circle {
+  background-color: #fff;
+  color: #999;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  border: 3px solid var(--line-border-empty);;
+
+  /* выравниваем цифры в кругах по центру */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* добавляем переход, круги будут менять свой цвет на синий по мере движения - будем присваивать класс active */
+  transition: .4s ease;
+}
+
+/* стилизуем класс active для кругов */
+.circle.active {
+  border-color: var(--line-border-fill);
+}
+
+
+
+/* -- КНОПКИ -- */
+
+.btn {
+  background-color: var(--line-border-fill);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  /* 8px - top and bottom; 30px - left and right */
+  padding: 8px 30px;
+  margin: 5px;
+  font-size: 14px;
+}
+
+
+/* добавляем стиль при клике - состояние active */
+.btn:active {
+  transform: scale(.98);
+}
+
+/* стилизуем disabled кнопку */
+.btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* а */

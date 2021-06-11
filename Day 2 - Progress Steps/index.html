@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Progress Steps</title>
+</head>
+
+
+<body>
+
+
+<!-- Step 1 - создаем первичную структуру -->
+<div class="container">
+
+  <div class="progress-container">
+
+    <!-- линия прогресса, которая будет увеличиваться по мере прохождения шагов -->
+    <div class="progress" id="progress"></div>
+
+    <!-- разметка самих кругов, у активного круга будет доп класс active -->
+    <div class="circle active">1</div>
+    <div class="circle">2</div>
+    <div class="circle">3</div>
+    <div class="circle">4</div>
+  </div>
+
+  <!-- кнопка возврата на предыдущий шаг, по дефолту она disabled, так как мы стартуем всегда с первого шага и назад некуда откатываться -->
+  <button class="btn" id="prev" disabled>Prev</button>
+  <button class="btn" id="next">Next</button>
+</div>
+
+
+
+
+
+
+
+<script src='script.js'></script>
+
+</body>
+</html>
