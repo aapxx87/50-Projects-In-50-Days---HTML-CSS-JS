@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #333;
+  color: #222;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+
+
+/* КОНТЕЙНЕР С КОНТЕНТОМ */
+
+.container {
+  width: 100vw;
+  background-color: #fafafa;
+
+  /* нам нужно, чтобы вращение шло относительно левого вехнего угла - определяем точку вращения */
+  transform-origin: top left;
+  /* добавляем плавности вращению */
+  transition: transform .5s linear;
+  min-height: 100vh;
+  padding: 50px;
+}
+
+/* класс при отодвигании (вращении) контейнера в сторону - будем добавлять JS */
+.container.show-nav {
+
+  /* для поворота используем свойство transform */
+  transform: rotate(-20deg)
+}
+
+
+/* когда у контенера будет класс show-nav то мы зададим стиль появления для навигации, которая изначально сдвинута влево */
+.container.show-nav + nav li {
+  transform: translateX(0);
+  transition-delay: .3s;
+}
+
+
+/* чтобы поворачивался круг с иконками меню при повороте контейнера */
+.container.show-nav .circle {
+
+  /* для поворота используем свойство transform */
+  transform: rotate(-70deg)
+}
+
+
+
+
+/* КОНТЕЙНЕР-КРУГ ДЛЯ КНОПОК МЕНЮ */
+
+.circle-container {
+  position: fixed;
+  /* нам нужно сдвинуть круг на половину за пределы экрана - негативное позиционирование */
+  top: -100px;
+  left: -100px;
+}
+
+.circle {
+  background-color: #ff7979;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  /* кнопки внутри будут absolute */
+  position: relative;
+  transition: transform .5s linear;
+}
+
+
+/* КНОПКИ МЕНЮ В КРУГЕ */
+
+.circle button {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100px;
+  background: transparent;
+  border: 0;
+  font-size: 26px;
+  color: #fff;
+}
+
+/* убираем синие выделение при клике по кнопке */
+.circle button:focus {
+  outline: none;
+}
+
+
+/* Мы меняем позиции иеонок открытия и закрытия в круге так чтобы они типа крутились и сменяли друг друга при отрытии и закрытии меню */
+
+/* относительно circle */
+.circle button#open {
+  left: 60%;
+}
+
+/* относительно circle */
+.circle button#close {
+  top: 60%;
+  transform: rotate(90deg);
+  transform-origin: top left;
+}
+
+
+/* КАРТИНКА */
+.content img {
+  max-width: 100%;
+}
+
+
+/* КОНТЕЙНЕР С КОНТЕНТОМ */
+.content {
+  max-width: 800px;
+  margin: 50px auto;
+}
+
+.content h1 {
+  margin: 0;
+}
+
+.content small {
+  color: #555;
+  font-style: italic;
+}
+
+.content p {
+  color: #333;
+  line-height: 1.5;
+}
+
+
+
+/* NAVIGATION */
+
+nav {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  z-index: 100;
+}
+
+nav ul {
+  list-style-type: none;
+  padding-left: 30px;
+}
+
+nav ul li {
+  text-transform: uppercase;
+  color: #fff;
+  margin: 40px 0;
+
+  /* смещаем влево за пределы экрана, так как список будет выезжать при смещении части с контентом */
+  transform: translateX(-100%);
+  transition: transform .4s ease-in;
+}
+
+nav ul li i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+nav ul li + li {
+  margin-left: 15px;
+  transform: translateX(-150%);
+}
+
+nav ul li + li + li {
+  margin-left: 30px;
+  transform: translateX(-200%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* f */
