@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Step 2 */
+
+body {
+  background-color: #efedd6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+h1 {
+  margin: 10px;
+}
+
+.box {
+  background-color: steelblue;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 200px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5);
+
+  /* нам нужно, чтобы боксы выезжали слева по мере скрола, поэтому перемщаем их левее */
+  transform: translateX(300%);
+  transition: transform .4s ease;
+}
+
+
+/* когда мы будем назначать класс show, то бокс будет возаращаться на первоначальную позицю, то есть везжать из границы экрана в центр */
+.box.show {
+  transform: translateX(0);
+}
+
+
+/* чтобы боксы поочередно выезжали то слева то справа назначаем псевдоклассом через один размещение слева - почему то у меня не работает */
+/* .box:nth-of-type(even) {
+  transform: translateX(-300%);
+} */
+
+.box h2 {
+  font-size: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* f */
